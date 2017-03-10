@@ -6,168 +6,106 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>热门</title>
 </head>
+<style>
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+    margin: 0;
+    padding: 0;
+}
+#container {
+    position: relative;
+}
+html,body {
+    overflow: hidden
+}
+#hot-list {
+    width: 100%;
+    position: relative;
+}
+#hot-list .li {
+    padding: 25px 18px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid #eee;
+}
+#hot-list .li h3 {
+    text-align: justify;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.41;
+    color: #494949;
+    margin-bottom: 6px;
+    margin-top:0px;
+}
+#hot-list .li p {
+    overflow: hidden;
+    text-align: justify;
+    color: #aaa;
+    font-size: 12px;
+    line-height: 1.5;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+.li-img {
+    position: relative;
+    width: 25.6%;
+    margin-left: 25px;
+    float: right;
+}
+.li-img img {width:100%;height:100%;}
+.author {
+    font-size: 12px;
+    color: #ccc;
+}
+</style>
 <body>
-    <div id="container">222</div>
-    <!--<iframe src="http://47.93.39.190/ineww/news"></iframe>-->
+    <div id="container">
+        <div id="hot-list">
+            <!--<div class="li">
+                <div class="li-img"><img src="https://qnmob2.doubanio.com/img/files/file-1489047494.jpg?imageView2/2/q/80/w/330/h/330/format/jpg"></div>
+                <h3>妇女节命题作文，谷歌百度搜狗360怎么写？</h3>
+                <p>妇女节命题作文，谷歌百度搜狗360怎么写？</p>
+                <div class="author">by&nbsp;<span class="name">TechNews科技新报</span></div>
+            </div>
+            <div class="li">
+                <div class="li-img"><img src="https://qnmob2.doubanio.com/img/files/file-1489047494.jpg?imageView2/2/q/80/w/330/h/330/format/jpg"></div>
+                <h3>妇女节命题作文，谷歌百度搜狗360怎么写？</h3>
+                <p>来源:搜狐网</p>
+            </div>-->
+        </div>
+    </div>
     <script src="../common/jquery.min.js"></script>
     <script>
-        var contain = document.getElementById('container');
-
-        // $.get('http://47.93.39.190/ineww/news',
-        //     function(data){
-        //         contain.innerHTML = 22;
-        //     })
+        var contain = document.getElementById('hot-list');
+        $.ajax({
+            url:'http://47.93.39.190/ineww/news',
+            type:'GET',
+            success:function (data){
+                var json = JSON.parse(data);
+                var resultArray = json.data.result;
+                var i,j,ctn;
+                for(i=0;i<resultArray.length;i++){
+                    // for(j in resultArray[i]){
+                        
+                    //     contain.innerHTML += resultArray[i][j];
+                    // }
+                    ctn = '<div class="li">'+
+                '<div class="li-img"><img src="https://qnmob2.doubanio.com/img/files/file-1489047494.jpg?imageView2/2/q/80/w/330/h/330/format/jpg"></div>'+
+                '<h3>'+resultArray[i]['title']+'<span></span></h3>'+
+                '<p>'+resultArray[i]['title']+'</p>'+
+                '<div class="author">by&nbsp;<span class="name">'+resultArray[i]['author']+'</span></div>'+
+            '</div>';
+                    contain.innerHTML+=ctn;
+                }
+                
+                
+            }
+        })
     </script>
-    <style type="text/css">
-.mod { margin-bottom: 25px }
-.mod .hd { margin-bottom: 10px }
-fieldset {border:1px solid #DDDDDD;margin-bottom:15px;padding:0 10px;}
-.mod h2{color:#333d48;}
-#headline img { width: 120px;}
-</style>
-    <style type="text/css">img { max-width: 100%; }</style>
-    <script type="text/javascript"></script>
-    <link rel="stylesheet" href="https://img3.doubanio.com/misc/mixed_static/4c717cda15ea2afc.css">
-
-    <link rel="shortcut icon" href="https://img3.doubanio.com/favicon.ico" type="image/x-icon">
-</head>
-
-<body>
-  
-    <script type="text/javascript">var _body_start = new Date();</script>
-
     
-   
-
-
-
-
-
-
-
-<div id="db-global-nav" class="global-nav">
-  <div class="bd">
-    
-
-
-
-
-
-<div class="top-nav-info">
-      
-      <a href="https://www.douban.com/accounts/login?source=movie" class="nav-login" rel="nofollow">登录</a>
-      <a href="https://www.douban.com/accounts/register?source=movie" class="nav-register" rel="nofollow">注册</a>
-</div>
-
-
-    <div class="top-nav-doubanapp">
-        
-        <a href="https://www.douban.com/doubanapp/app?channel=top-nav" class="lnk-doubanapp">下载豆瓣客户端</a>
-        <div id="top-nav-appintro" class="more-items">
-            <p class="appintro-title">豆瓣</p>
-            <p class="slogan">我们的精神角落</p>
-            <p class="qrcode">
-                扫码直接下载
-            </p>
-            <div class="download">
-                <a href="https://www.douban.com/doubanapp/redirect?channel=top-nav&amp;direct_dl=1&amp;download=iOS">iPhone</a>
-                <span>·</span>
-                <a href="https://www.douban.com/doubanapp/redirect?channel=top-nav&amp;direct_dl=1&amp;download=Android" class="download-android">Android</a>
-            </div>
-        </div>
-        <div id="doubanapp-tip">
-            <a href="https://www.douban.com/doubanapp/app?channel=qipao" class="tip-link">豆瓣 4.0 全新发布</a>
-            <a href="javascript: void 0;" class="tip-close">×</a>
-        </div>
-    </div>
-
-    <div class="global-nav-items">
-      <ul>
-          
-            
-            <li class="">
-            <a href="https://www.douban.com/" target="_blank" data-moreurl-dict="{&#34;from&#34;:&#34;top-nav-click-main&#34;,&#34;uid&#34;:&#34;0&#34;}">
-              豆瓣
-            </a>
-            </li>
-          
-            
-            <li class="">
-            <a href="https://book.douban.com/" target="_blank" data-moreurl-dict="{&#34;from&#34;:&#34;top-nav-click-book&#34;,&#34;uid&#34;:&#34;0&#34;}">
-              读书
-            </a>
-            </li>
-          
-            
-            <li class="on">
-            <a href="https://movie.douban.com/" data-moreurl-dict="{&#34;from&#34;:&#34;top-nav-click-movie&#34;,&#34;uid&#34;:&#34;0&#34;}">
-              电影
-            </a>
-            </li>
-          
-            
-            <li class="">
-            <a href="https://music.douban.com/" target="_blank" data-moreurl-dict="{&#34;from&#34;:&#34;top-nav-click-music&#34;,&#34;uid&#34;:&#34;0&#34;}">
-              音乐
-            </a>
-            </li>
-          
-            
-            <li class="">
-            <a href="https://www.douban.com/location/" target="_blank" data-moreurl-dict="{&#34;from&#34;:&#34;top-nav-click-location&#34;,&#34;uid&#34;:&#34;0&#34;}">
-              同城
-            </a>
-            </li>
-          
-            
-            <li class="">
-            <a href="https://www.douban.com/group/" target="_blank" data-moreurl-dict="{&#34;from&#34;:&#34;top-nav-click-group&#34;,&#34;uid&#34;:&#34;0&#34;}">
-              小组
-            </a>
-            </li>
-          
-            
-            <li class="">
-            <a href="https://read.douban.com/?dcs=top-nav&amp;dcm=douban" target="_blank" data-moreurl-dict="{&#34;from&#34;:&#34;top-nav-click-read&#34;,&#34;uid&#34;:&#34;0&#34;}">
-              阅读
-            </a>
-            </li>
-          
-            
-            <li class="">
-            <a href="https://douban.fm/?from_=shire_top_nav" target="_blank" data-moreurl-dict="{&#34;from&#34;:&#34;top-nav-click-fm&#34;,&#34;uid&#34;:&#34;0&#34;}">
-              FM
-            </a>
-            </li>
-          
-            
-            <li class="">
-            <a href="https://dongxi.douban.com/?dcs=top-nav&amp;dcm=douban" target="_blank" data-moreurl-dict="{&#34;from&#34;:&#34;top-nav-click-commodity&#34;,&#34;uid&#34;:&#34;0&#34;}">
-              东西
-            </a>
-            </li>
-          
-            
-            <li class="">
-            <a href="https://market.douban.com/?utm_campaign=douban_top_nav&amp;utm_source=douban&amp;utm_medium=pc_web" target="_blank" data-moreurl-dict="{&#34;from&#34;:&#34;top-nav-click-market&#34;,&#34;uid&#34;:&#34;0&#34;}">
-              市集
-            </a>
-            </li>
-          
-            <li>
-              <a href="#more" class="bn-more"><span>更多</span></a>
-              <div class="more-items">
-                <table cellpadding="0" cellspacing="0">
-                    
-                    <tr><td><a href="https://moment.douban.com" target="_blank" data-moreurl-dict="{&#34;from&#34;:&#34;top-nav-click-moment&#34;,&#34;uid&#34;:&#34;0&#34;}">一刻</a></td></tr>
-                    
-                    <tr><td><a href="https://ypy.douban.com" target="_blank" data-moreurl-dict="{&#34;from&#34;:&#34;top-nav-click-ypy&#34;,&#34;uid&#34;:&#34;0&#34;}">豆瓣摄影</a></td></tr>
-                </table>
-              </div>
-            </li>
-      </ul>
-    </div>
-  </div>
-</div>
 </body>
 </html>

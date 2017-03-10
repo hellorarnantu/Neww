@@ -767,7 +767,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.jiangxiang.neww;
+				PRODUCT_BUNDLE_IDENTIFIER = org.jiangxiang.newww;
 				PRODUCT_NAME = Neww;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -788,7 +788,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.jiangxiang.neww;
+				PRODUCT_BUNDLE_IDENTIFIER = org.jiangxiang.newww;
 				PRODUCT_NAME = Neww;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

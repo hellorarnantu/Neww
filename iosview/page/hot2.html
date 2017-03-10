@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div id="container">222</div>
+    <script src="../common/jquery.min.js"></script>
+    <script>
+        var contain = document.getElementById('container');
+    $.ajax({
+            url:'http://47.93.39.190/ineww/news',
+            type:'GET',
+            beforeSend:function (xhr){
+                // contain.innerHTML = "";
+                // for(var i in xhr){
+                //     contain.innerHTML+=i+'-------'+xhr+'<br>';
+                // }
+            },
+            success:function(data){
+                contain.innerHTML = 22;
+            },
+            error:function(data){
+                
+            }
+        });
+    </script>
+</body>
+</html>
