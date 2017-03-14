@@ -12,20 +12,6 @@ import {
     FlatList
 } from 'react-native';
 
-// import RCD from '../common/refreshControl';
-// import {
-//     FooterComponent,
-//     HeaderComponent,
-//     ItemComponent,
-//     PlainInput,
-//     SeparatorComponent,
-//     genItemData,
-//     getItemLayout,
-//     pressItem,
-//     renderSmallSwitchOption
-// } from '../common/ListControl';
-// import FlatListExample from '../common/FlatListExample';
-
 import HotInnerList from './hotInnerList';
 
 export default class HotPage extends Component {
@@ -42,7 +28,7 @@ export default class HotPage extends Component {
     render(){
         return (
             <Navigator
-            initialRoute={{title:'热门1',index:0}}
+            initialRoute={{title:'热门',index:0}}
             renderScene={(route,navigator)=>
                 <HotInnerList/>
             }

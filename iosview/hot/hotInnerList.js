@@ -67,9 +67,13 @@ class HotInnerList extends React.Component {
             sourceStyle = styles.source;
         }
         return (
-            <TouchableHighlight onPress={()=>{
-                highlightRow(sectionID,rowID);
-                }}>
+            <TouchableHighlight
+                activeOpacity={1}
+                underlayColor={'#eee'}
+                onPress={()=>{
+                    highlightRow(sectionID,rowID);
+                }
+                }>
                 <View>
                     <View style={styles.row}>
                             <Image style={imgStyle} source={source}/>
@@ -99,8 +103,6 @@ class HotInnerList extends React.Component {
                     refreshing={this.state.isRefreshing}
                     onRefresh={this._onRefresh}
                     tintColor="#000000"
-                    title="加载中..."
-                    titleColor="#000000"
                     colors={['#ff0000', '#00ff00', '#0000ff']}
                     progressBackgroundColor="#ffff00"
                 />
@@ -157,16 +159,18 @@ const styles = StyleSheet.create({
         color: '#888',
         fontSize:12,
         marginLeft:110,
-        marginTop:10
+        marginTop:10,
+        marginBottom:5,
     },
     sourceFull: {
         color: '#888',
         fontSize:12,
         marginLeft:0,
-        marginTop:10
+        marginTop:10,
+        marginBottom:5,
     },
     hotListStyle: {
-        marginTop: 45,
+        marginTop: 42,
         backgroundColor:'#fff',
     }
 });

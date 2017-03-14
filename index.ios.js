@@ -37,33 +37,6 @@ export default class Neww extends Component {
     list:''
   };
 
-  /*_renderContent = (color: string, pageText: string, num?: number) => {
-    return (
-      <View style={[styles.tabContent, {backgroundColor: color}]}>
-        <Text style={styles.tabText}>{pageText}</Text>
-        <Text style={styles.tabText}>{num} re-renders of the {pageText}</Text>
-      </View>
-    );
-  };*/
-
-  // componentWillMount = () => {
-  //   fetch('http://47.93.39.190/ineww/news',{
-  //     method:'GET',
-  //     mode:'cors',
-  //     cache:'default'
-  //   })
-  //     .then(response=>response.json())
-  //     .then((responseJson)=>{
-  //       var rs = JSON.parse(JSON.stringify(responseJson));
-  //       this.setState({
-  //         list:rs.data.result[0].keywords
-  //       })
-  //     })
-  //     .catch(error=>{
-  //       console.warn(error);
-  //     })
-  // }
-
   render() {
     return (
       <TabBarIOS>
