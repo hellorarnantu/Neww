@@ -62,7 +62,7 @@ html,body {
     color: #ccc;
 }
 </style>
-<body>
+<body ontouchstart="event.preventDefault()">
     <div id="container">
         <div id="hot-list">
             <!--<div class="li">
@@ -89,16 +89,12 @@ html,body {
                 var resultArray = json.data.result;
                 var i,j,ctn;
                 for(i=0;i<resultArray.length;i++){
-                    // for(j in resultArray[i]){
-                        
-                    //     contain.innerHTML += resultArray[i][j];
-                    // }
                     ctn = '<div class="li">'+
-                '<div class="li-img"><img src="https://qnmob2.doubanio.com/img/files/file-1489047494.jpg?imageView2/2/q/80/w/330/h/330/format/jpg"></div>'+
-                '<h3>'+resultArray[i]['title']+'<span></span></h3>'+
-                '<p>'+resultArray[i]['title']+'</p>'+
-                '<div class="author">by&nbsp;<span class="name">'+resultArray[i]['author']+'</span></div>'+
-            '</div>';
+                        '<div class="li-img"><img src="https://qnmob2.doubanio.com/img/files/file-1489047494.jpg?imageView2/2/q/80/w/330/h/330/format/jpg"></div>'+
+                        '<h3>'+resultArray[i]['title']+'<span></span></h3>'+
+                        '<p>'+resultArray[i]['title']+'</p>'+
+                        '<div class="author">by&nbsp;<span class="name">'+resultArray[i]['author']+'</span></div>'+
+                    '</div>';
                     contain.innerHTML+=ctn;
                 }
                 
