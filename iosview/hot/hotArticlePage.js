@@ -6,6 +6,8 @@ import {
     Text
 } from 'react-native';
 
+import HtmlView from '../common/htmlview/index';
+
 const articleUrl = 'http://47.93.39.190/ineww/news/';
 
 class HotArticlePage extends React.Component {
@@ -41,6 +43,7 @@ class HotArticlePage extends React.Component {
         return (
             <ScrollView style={styles.scroll}>
                 <Text style={{marginTop:100}}>{this.state.content}</Text>
+                <HtmlView />
             </ScrollView>
         );
     }
