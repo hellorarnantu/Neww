@@ -12,6 +12,7 @@ import {
 
 const hotNewsUrl = 'http://47.93.39.190/ineww/news?page=';
 
+
 class HotInnerList extends React.Component {
     constructor(props){
         super(props);
@@ -22,11 +23,11 @@ class HotInnerList extends React.Component {
             isRefreshing:true
         }
     }
-
-    _getHotNews(){
+    //get Hot News List
+    _getHotNews = ()=>{
         let number = Math.round(Math.random()*100)
         let url = hotNewsUrl+number;
-        console.log(number);
+        // console.log(number);
         fetch(url,{
             method:'GET',
             cache:'default'
@@ -50,9 +51,10 @@ class HotInnerList extends React.Component {
         this._getHotNews();
     }
     
-    _renderRow(rowData,sectionID,rowID,highlightRow){
+    _renderRow = (rowData,sectionID,rowID,highlightRow)=>{
         let row = rowData;
         let imgStyle,titleStyle,keywordStyle,sourceStyle,source;
+        // let self = this;
         if(row.image===""){
             source = null;
             imgStyle = {};
@@ -72,6 +74,7 @@ class HotInnerList extends React.Component {
                 underlayColor={'#eee'}
                 onPress={()=>{
                     highlightRow(sectionID,rowID);
+                    this.props.pressItem(rowData.news_id);
                 }
                 }>
                 <View>

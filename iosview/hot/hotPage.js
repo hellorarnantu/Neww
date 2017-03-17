@@ -13,33 +13,45 @@ import {
 } from 'react-native';
 
 import HotInnerList from './hotInnerList';
+import HotArticlePage from './hotArticlePage';
 
-export default class HotPage extends Component {
+class HotPage extends Component {
     constructor(props){
         super(props);
-        const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-        this.state = {
-            dataSource: ds.cloneWithRows([
-                'John', 'Joel', 'James', 'Jimmy', 'Jackson', 'Jillian', 'Julie', 'Devin'
-            ])
-        };
     }
     
     render(){
+        const routes = [
+            {component:HotInnerList,title:'热门',left:'',index:0}
+        ];
         return (
             <Navigator
-            initialRoute={{title:'热门',index:0}}
-            renderScene={(route,navigator)=>
-                <HotInnerList/>
-            }
+            initialRoute={routes[0]}
+            initialRouteStack={routes}
+            renderScene={(route,navigator)=>{
+                return (
+                    <route.component
+                        pressItem={function(news_id){
+                            navigator.push({
+                                title:'',
+                                component:HotArticlePage,
+                                left:'返回',
+                                index:1,
+                                params:{articleIndex:news_id}
+                            });
+                        }}
+                        {...route.params}
+                    />
+                );
+            }}
             navigationBar={
               <Navigator.NavigationBar
                 routeMapper={{
                   LeftButton:(route,navigator,index,navState)=>
                   {
                       return (<Text onPress={()=>{
-                          console.debug(123)
-                        }} style={{fontSize:15,lineHeight:36,fontWeight:'bold',marginLeft:10}}>返回</Text>)
+                          navigator.pop();
+                      }} style={{fontSize:15,lineHeight:36,fontWeight:'bold',marginLeft:10}}>{route.left}</Text>)
                   },
                   RightButton:(route,navigator,index,navState)=>
                   {
@@ -47,7 +59,7 @@ export default class HotPage extends Component {
                   },
                   Title:(route,navigator,index,navState)=>
                   {
-                      return(<Text style={{fontSize:18,lineHeight:36,fontWeight:'bold'}}>热门</Text>);
+                      return(<Text style={{fontSize:18,lineHeight:36,fontWeight:'bold'}}>{route.title}</Text>);
                   },
                 }}
                 style={{backgroundColor:'#eee'}}
@@ -79,3 +91,5 @@ const styles = StyleSheet.create({
         marginTop: 45
     }
 })
+
+module.exports = HotPage;

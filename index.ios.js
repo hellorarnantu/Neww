@@ -49,7 +49,7 @@ export default class Neww extends Component {
               selectedTab: 'blueTab',
             });
           }}>
-          <HotPage/>
+          <HotPage hello={'hello'}/>
         </TabBarIOS.Item>
         <TabBarIOS.Item
           title="八卦"
