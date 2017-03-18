@@ -70,7 +70,7 @@ class HtmlView extends Component {
 
   render() {
     if (this.state.element) {
-      return <Text children={this.state.element} />;
+      return <Text style={{marginTop:50}} children={this.state.element} />;
     }
     return <Text />;
   }

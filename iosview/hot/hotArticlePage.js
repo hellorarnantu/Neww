@@ -21,7 +21,6 @@ class HotArticlePage extends React.Component {
     _getHotNews = (articleIndex)=>{
         let number = Math.round(Math.random()*100)
         let url = articleUrl+articleIndex;
-        // console.log(number);
         fetch(url,{
             method:'GET',
             cache:'default'
@@ -42,8 +41,9 @@ class HotArticlePage extends React.Component {
     render(){
         return (
             <ScrollView style={styles.scroll}>
-                <Text style={{marginTop:100}}>{this.state.content}</Text>
-                <HtmlView />
+                <HtmlView
+                    value={this.state.content}
+                />
             </ScrollView>
         );
     }
