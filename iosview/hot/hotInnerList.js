@@ -25,11 +25,14 @@ class HotInnerList extends React.Component {
     }
     //get Hot News List
     _getHotNews = ()=>{
-        let number = Math.round(Math.random()*100)
+        let number = 1
         let url = hotNewsUrl+number;
-        // console.log(number);
         fetch(url,{
             method:'GET',
+            headers:{
+                'USER-ID':'e880ddce5ecd4a05b9d7603af10370e7',
+                'ACCESS-TOKEN':'07e8467079fe4f1ba36cc7774151cfb0'
+            },
             cache:'default'
         })
         .then(response=>response.json())
@@ -54,7 +57,6 @@ class HotInnerList extends React.Component {
     _renderRow = (rowData,sectionID,rowID,highlightRow)=>{
         let row = rowData;
         let imgStyle,titleStyle,keywordStyle,sourceStyle,source;
-        // let self = this;
         if(row.image===""){
             source = null;
             imgStyle = {};
@@ -173,7 +175,7 @@ const styles = StyleSheet.create({
         marginBottom:5,
     },
     hotListStyle: {
-        marginTop: 42,
+        marginTop: 44,
         backgroundColor:'#fff',
     }
 });

@@ -8,8 +8,7 @@ import {
     View,
     StyleSheet,
     Image,
-    Animated,
-    FlatList
+    Animated
 } from 'react-native';
 
 import HotInnerList from './hotInnerList';

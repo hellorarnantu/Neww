@@ -51,6 +51,8 @@ class HotArticlePage extends React.Component {
 
 const styles = StyleSheet.create({
     scroll:{
+        marginTop:60,
+        marginBottom:48,
         backgroundColor:'#fff',
     }
 });
